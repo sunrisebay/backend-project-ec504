@@ -17,16 +17,36 @@ public class tester {
 	}
 	public static boolean compare(ArrayList<String> a, ArrayList<String> b)
 	{
+		byte [] aa = null;
+		byte [] bb = null;
 		if (a.size()!=b.size())
 			return false;
 		else
 		{
 			for (int ii = 0 ; ii<a.size() ; ii++)
 			{
-				System.out.println(a.get(ii).equals(b.get(ii)));
+				if ((a.get(ii).equals(b.get(ii)))==false)
+				{
+					//System.out.println(a.get(ii));
+					//System.out.println(b.get(ii));
+					aa = readinfile.readinbyte(a.get(ii));
+					bb = readinfile.readinbyte(b.get(ii));
+				}
 					
 			}
+			
+			//System.out.println(aa.length);
+			//System.out.println(bb.length);
+			
 		}
+		for (int ii = 0 ; ii<Math.min(aa.length, bb.length) ; ii++)
+		{
+			if (aa[ii]!=bb[ii])
+				System.out.println(aa[ii]);
+			
+				
+		}
+		
 		return false;
 	}
 
