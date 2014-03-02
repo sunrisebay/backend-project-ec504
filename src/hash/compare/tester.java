@@ -1,15 +1,18 @@
 package hash.compare;
+import hash.compare.diff_match_patch.Diff;
+
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class tester {
 	public static void main(String [] args) throws NoSuchAlgorithmException, ClassNotFoundException, IOException
 	{
 		
-		ArrayList<String> ori = readinfile.readin("plain.txt");
+		ArrayList<String> ori = readinfile.readin("10mb_1.txt");
 		
-		ArrayList<String> neww = readinfile.readin("change.txt");
+		ArrayList<String> neww = readinfile.readin("10mb_2.txt");
 		
 		if (initialcheck(ori,neww)==false)
 		{
@@ -24,6 +27,11 @@ public class tester {
 			}
 		}
 		//log(ori.get(0));
+		ll = diff_match_patch.diff_main(diff.get(0),diff.get(1));
+		for (int oo = 0 ; oo < ll.size() ; oo++)
+		{
+			log(ll.get(oo).toString());
+		}
 	}
 	
 	private static boolean initialcheck(ArrayList ori, ArrayList neww) throws NoSuchAlgorithmException
@@ -142,5 +150,5 @@ public class tester {
 	private static int offsetdelete=0;
 	private final static int BYTE = 5;
 	private static ArrayList<String> diff = new ArrayList<String>();
-
+	private static LinkedList<Diff> ll = new LinkedList<Diff>();
 }
