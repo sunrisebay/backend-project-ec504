@@ -1,16 +1,12 @@
 package hash.compare;
-import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 
 public class readinfile {
@@ -22,16 +18,11 @@ public class readinfile {
 		ArrayList<String> result = new ArrayList<String>();
 		
 		File file = new File(filename);
-		 try {
-		      InputStreamReader input = null;
-		      BufferedReader in = null;
-		      try {
-		       
-		        input = new InputStreamReader(new FileInputStream(file));
-		
-		        in = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
-		       // BufferedReader in = new BufferedReader( new InputStreamReader(new FileInputStream(filename)));	    
-		        
+		BufferedReader in = null;
+		    try {
+		    	 
+		    	 in = new BufferedReader( new InputStreamReader(new FileInputStream(file)));	    
+		    	
 		        /*
 				 * read by line
 				 * 
@@ -55,26 +46,17 @@ public class readinfile {
 					Arrays.fill(cbuf, ' ');
 				}*/
 				
-		        
+				
 		      }
-		      finally {
-		    	in.close();
-		        input.close();
-		      }
-		    }
-		    catch (FileNotFoundException ex) {
+		     
+		      catch (FileNotFoundException ex) {
 		   
-		    }
-		    catch (IOException ex) {
+		      }
+		      finally
+		      {
+		    	  in.close();
+		      }
 		    
-		    }
-		
-		/*
-		 * 
-		 * read by bytes no.2
-		 */
-		
-		
 		return result;
 	}
 	
@@ -84,6 +66,6 @@ public class readinfile {
 	     
 	    return input;
 	  }
-
+	
 	
 }
