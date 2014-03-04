@@ -1,6 +1,7 @@
 package hash.compare;
 import hash.compare.diff_match_patch.Diff;
 import hash.compare.diff_match_patch.Operation;
+import hash.compare.diffmatch.DiffNoPreandSur;
 
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
@@ -19,23 +20,29 @@ public class tester {
 		if (initialcheck(ori,neww)==false)
 		{
 			
+			
 			for (int kk  = 0 ;  kk < diff.size() ; kk ++)
 			{
-				ll.addAll(diff_match_patch.diff_main(diff.get(kk).ori,diff.get(kk).neww));
-				
+				//ll.addAll(diff_match_patch.diff_main(diff.get(kk).ori,diff.get(kk).neww));
+				str.add(diffmatch.diffmatch(diff.get(kk).ori.toString(), diff.get(kk).neww.toString())); 
 			}
 		}
 		
 		
-		for (int oo = 0 ; oo < ll.size() ; oo++)
+		for (int oo = 0 ; oo < str.size() ; oo++)
 		{
-			if (ll.get(oo).operation.toString().equals("EQUAL"))
-			{
-			
-			}
+			//if (ll.get(oo).operation.toString().equals("EQUAL"))
+			//{
+			//
+			//}
 			//else
-			log(Integer.toString(ll.get(oo).text.toString().length()));
-				log(ll.get(oo).toString());
+			//log(Integer.toString(ll.get(oo).text.toString().length()));
+			//	log(ll.get(oo).toString());
+			log(str.get(oo).ori.toString());
+			log(str.get(oo).neww.toString());
+			log("------------------------");
+			
+				
 		}
 	}
 	
@@ -165,5 +172,6 @@ public class tester {
 	private static int offsetdelete=0;
 	private final static int BYTE = 5;
 	private static ArrayList<DiffLine> diff = new ArrayList<DiffLine>();
-	private static LinkedList<Diff> ll = new LinkedList<Diff>();
+	private static ArrayList<Diff> ll = new ArrayList<Diff>();
+	private static ArrayList<DiffNoPreandSur> str = new ArrayList<DiffNoPreandSur>();
 }
