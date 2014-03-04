@@ -41,7 +41,7 @@ public class test1 {
 		}
 		diffptr = i;
 		
-		while(((index = str2.indexOf(str1.charAt(i))) == -1)||(((index - diffptr) > 5))) {				
+		while(((index = str2.substring(i,Math.min(i+5,str2.length())).indexOf(str1.charAt(i))) == -1)) {				
 			del += str1.charAt(i++);
 		}
 		
@@ -51,8 +51,8 @@ public class test1 {
 		
 		String newstr1 = str1.substring(i);
 		String newstr2 = str2.substring(index);
-		System.out.println("string1 is " + newstr1 + newstr1.length() + 
-						" string2 is " + newstr2 + newstr2.length());
+		System.out.println("string1 is " + newstr1 + " length is " + newstr1.length() + 
+						" string2 is " + newstr2 + " length is " + newstr2.length());
 		
 		finddiff(newstr1, newstr2);
 
