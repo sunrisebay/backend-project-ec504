@@ -3,16 +3,6 @@ package test.findcharedits;
 public class test1 {
 
 	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		String str1 = "abcdef";
-		String str2 = "1b2c3d4e5f";
-		
-		finddiff(str1, str2);
-	
-		
-	}
-	
 	public static void finddiff(String str1, String str2) {
 		int i = 0;
 		int index;

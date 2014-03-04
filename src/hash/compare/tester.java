@@ -1,4 +1,5 @@
 package hash.compare;
+import naive.decoder.decodefile;
 import hash.compare.diff_match_patch.Diff;
 import hash.compare.diff_match_patch.Operation;
 import hash.compare.diffmatch.DiffNoPreandSur;
@@ -44,6 +45,11 @@ public class tester {
 			
 				
 		}
+		String str1 = "abcdef";
+		String str2 = "1b2c3d4e5f";
+		
+		test.findcharedits.test1.finddiff(str1, str2);
+		decodefile.decode("plain.txt","fuckhansen",214,2,5);
 	}
 	
 	private static boolean initialcheck(ArrayList ori, ArrayList neww) throws NoSuchAlgorithmException
@@ -51,7 +57,7 @@ public class tester {
 		int flag=0;
 		if (ori.size()!=neww.size())
 		{
-			log("diff size");
+			log("Diff size");
 			return false;
 		}
 		for (int ii = 0 ; ii < ori.size() ; ii++)
