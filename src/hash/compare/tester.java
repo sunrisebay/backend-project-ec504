@@ -49,7 +49,7 @@ public class tester {
 		String str2 = "1b2c3d4e5f";
 		
 		test.findcharedits.test1.finddiff(str1, str2);
-		decodefile.decode("plain.txt","fuckhansen",214,2,5);
+		decodefile.decode("plain.txt","testoutput.txt","testchangetext",214,2,5);
 	}
 	
 	private static boolean initialcheck(ArrayList ori, ArrayList neww) throws NoSuchAlgorithmException
