@@ -59,13 +59,57 @@ public class readinfile {
 		    
 		return result;
 	}
-	
+	/*
+	 * read the whole file
+	 */
+	public static String readwholein(String filename) throws IOException, ClassNotFoundException, NoSuchAlgorithmException 
+	{
+		String str;
+		int counter=0;
+		//char[] cbuf = new char[8];
+		ArrayList<String> result = new ArrayList<String>();
+		String string = null;
+		
+		File file = new File(filename);
+		BufferedReader in = null;
+		    try {
+		    	 
+		    	 in = new BufferedReader( new InputStreamReader(new FileInputStream(file)));	    
+		    	
+		        /*
+				 * read by line
+				 * 
+				 * 
+				 */
+				
+				while ((str=in.readLine())!=null)
+				{
+					
+					string += str;
+				}
+			
+				
+				
+		      }
+		     
+		      catch (FileNotFoundException ex) {
+		   
+		      }
+		      finally
+		      {
+		    	  in.close();
+		      }
+		    
+		    
+		return string;
+	}
 	public static byte[] readinbyte(String Fileline){
 		
 	        byte[] input = Fileline.getBytes();
 	     
 	    return input;
 	  }
+	
 	
 	
 }
