@@ -1,8 +1,17 @@
 package hash.compare;
 
+import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 
 public class tester2 {
+	public static void main(String [] args) throws ClassNotFoundException, NoSuchAlgorithmException, IOException
+	{
+		String file1 = readinfile.readwholein("plain.txt");
+		String file2 = readinfile.readwholein("change.txt");
+		
+		stepcheckV2(file1,file2);
+		readinfile.readinfolder("testfolder");
+	}
 	public static boolean initialcheckV2(String s1, String s2) throws NoSuchAlgorithmException
 	{
 		if (hashcodegenerator.makehash(s1).equals(hashcodegenerator.makehash(s2)))
@@ -15,7 +24,7 @@ public class tester2 {
 	
 	public static void stepcheckV2(String s1, String s2) throws NoSuchAlgorithmException
 	{
-		if (initialcheckV2(s1,s2))
+		if (initialcheckV2(s1,s2)==false)
 		{
 			int MAXSIZE = Math.max(s1.length(), s2.length());
 			int CHUNKSIZE = MAXSIZE/CHUNKS;
@@ -28,6 +37,7 @@ public class tester2 {
 				stepcompare(sub1,sub2);
 				startpt = Math.min(startpt+CHUNKSIZE, MAXSIZE);				
 			}
+			log("I run through the while loop");
 			
 		}
 		else

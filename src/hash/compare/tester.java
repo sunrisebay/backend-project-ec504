@@ -11,7 +11,7 @@ import java.util.Collection;
 import java.util.LinkedList;
 
 public class tester {
-	public static void main(String [] args) throws NoSuchAlgorithmException, ClassNotFoundException, IOException
+	/*public static void main(String [] args) throws NoSuchAlgorithmException, ClassNotFoundException, IOException
 	{
 		
 		ArrayList<String> ori = readinfile.readin("plain.txt");
@@ -50,7 +50,7 @@ public class tester {
 		
 		test.findcharedits.test1.finddiff(str1, str2);
 		decodefile.decode("plain.txt","testoutput.txt","testchangetext",214,2,5);
-	}
+	}*/
 	
 	private static boolean initialcheck(ArrayList ori, ArrayList neww) throws NoSuchAlgorithmException
 	{
