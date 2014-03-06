@@ -63,15 +63,16 @@ public class readinfile {
 	/*
 	 * read the whole file
 	 */
-	public static String readwholein(String filename) throws IOException, ClassNotFoundException, NoSuchAlgorithmException 
+	public static ArrayList<String> readwholein(File file) throws IOException, ClassNotFoundException, NoSuchAlgorithmException 
 	{
 		String str;
-		int counter=0;
+		//int counter=0;
 		//char[] cbuf = new char[8];
 		ArrayList<String> result = new ArrayList<String>();
 		String string ="";
 		
-		File file = new File(filename);
+		
+		//File file = new File(filename);
 		//string = FileUtils.
 		BufferedReader in = null;
 		    try {
@@ -102,15 +103,16 @@ public class readinfile {
 		    	  in.close();
 		      }
 		    
-		    
-		return string;
+		result.add(string);   
+		log(string);
+		return result;
 	}
 	
-	public static void readinfolder(String foldername) throws IOException
+	public static ArrayList<String> readinfolder(File folder) throws IOException
 	{
-		File folder = new File(foldername);
+		//File folder = new File(foldername);
 		File[] listoffiles = folder.listFiles();
-		
+		ArrayList<String> result = new ArrayList<String>();
 		
 		for (File file: listoffiles)
 		{
@@ -148,6 +150,22 @@ public class readinfile {
 		    System.out.println(string.charAt(string.length()-1));
 		
 		}
+		return result;
+	}
+	
+	public static ArrayList<String> readinmain(String name) throws ClassNotFoundException, NoSuchAlgorithmException, IOException
+	{	
+		ArrayList<String> result = new ArrayList<String>();
+		File file = new File(name);
+		if (file.isFile())
+		{
+			return result = readwholein(file);
+		}
+		else
+		{
+			return result = readinfolder(file);
+		}
+		
 	}
 	
 	public static byte[] readinbyte(String Fileline){
@@ -157,6 +175,9 @@ public class readinfile {
 	    return input;
 	  }
 	
-	
+	private static void log(String a)
+	{
+		System.out.println(a);
+	}
 	
 }

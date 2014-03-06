@@ -2,15 +2,16 @@ package hash.compare;
 
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 
 public class tester2 {
 	public static void main(String [] args) throws ClassNotFoundException, NoSuchAlgorithmException, IOException
 	{
-		String file1 = readinfile.readwholein("plain.txt");
-		String file2 = readinfile.readwholein("change.txt");
+		ArrayList<String> file1 = readinfile.readinmain("plain.txt");
+		//ArrayList<String> file2 = readinfile.readinmain("change.txt");
 		
-		stepcheckV2(file1,file2);
-		readinfile.readinfolder("testfolder");
+		//stepcheckV2(file1.get(0).toString(),file2.get(0).toString());
+		//readinfile.readinmain("testfolder");
 	}
 	public static boolean initialcheckV2(String s1, String s2) throws NoSuchAlgorithmException
 	{
