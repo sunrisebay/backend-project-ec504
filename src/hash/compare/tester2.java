@@ -1,5 +1,8 @@
 package hash.compare;
 
+import hash.hashcodegenerator.hashcodegenerator;
+import hash.hashcodegenerator.initialhashcodegenerator;
+
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
@@ -12,7 +15,8 @@ public class tester2 {
 		
 		//stepcheckV2(file1.get(0).toString(),file2.get(0).toString());
 		//readinfile.readinmain("testfolder");
-		initialhashcodegenerator.initialwritefile("plain.txt");
+		//initialhashcodegenerator.initialwritefile("plain.txt");
+		initialhashcodegenerator.initialwritefile("change.txt");
 	}
 	public static boolean initialcheckV2(String s1, String s2) throws NoSuchAlgorithmException
 	{
@@ -56,5 +60,5 @@ public class tester2 {
 	{
 		System.out.println(a);
 	}
-	private static int CHUNKS = 1000;
+	private static int CHUNKS =  1000;
 }
