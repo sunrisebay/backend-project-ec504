@@ -7,11 +7,12 @@ import java.util.ArrayList;
 public class tester2 {
 	public static void main(String [] args) throws ClassNotFoundException, NoSuchAlgorithmException, IOException
 	{
-		ArrayList<String> file1 = readinfile.readinmain("plain.txt");
+		//ArrayList<String> file1 = readinfile.readinmain("plain.txt");
 		//ArrayList<String> file2 = readinfile.readinmain("change.txt");
 		
 		//stepcheckV2(file1.get(0).toString(),file2.get(0).toString());
 		//readinfile.readinmain("testfolder");
+		initialhashcodegenerator.initialwritefile("plain.txt");
 	}
 	public static boolean initialcheckV2(String s1, String s2) throws NoSuchAlgorithmException
 	{
