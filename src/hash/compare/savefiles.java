@@ -11,7 +11,18 @@ public class savefiles {
 		PrintStream outDecode = new PrintStream(new FileOutputStream("database/" + filename));
 		for ( String ss : str)
 		{
-			outDecode.println(ss);
+			outDecode.print(ss);
+		}
+		
+		outDecode.close();
+	}
+	
+	public static void generalsave(String filename, ArrayList<String> str) throws FileNotFoundException
+	{
+		PrintStream outDecode = new PrintStream(new FileOutputStream("database/" + filename));
+		for ( String ss : str)
+		{
+			outDecode.print(ss);
 		}
 		
 		outDecode.close();

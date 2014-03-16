@@ -15,8 +15,8 @@ public class tester2 {
 		
 		//stepcheckV2(file1.get(0).toString(),file2.get(0).toString());
 		//readinfile.readinmain("testfolder");
-		initialhashcodegenerator.initialwritefile("plain.txt");
-		//initialhashcodegenerator.initialwritefile("change.txt");
+		//initialhashcodegenerator.initialwritefile("plain.txt");
+		initialhashcodegenerator.initialwritefile("change.txt");
 		//readinfile.readinbybyte("plain.txt");
 	}
 	public static boolean initialcheckV2(String s1, String s2) throws NoSuchAlgorithmException

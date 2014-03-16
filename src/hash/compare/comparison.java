@@ -13,13 +13,14 @@ public class comparison extends hashcodegenerator {
 		File ff = new File(filename);
 		ArrayList<String> str =  readinfile.readinbybyte(ff);
 		ArrayList<String> data = readinfile.readin("data/data.txt");
+		ArrayList<String> result = new ArrayList<String>();
 		int ii = 0 ; 
 		int counter=0;
 		int LENGTH = str.get(0).length();
-		log(Integer.toString(LENGTH));
 		while (  ii <= LENGTH && counter < data.size() )
 		{
-			String ss = makehash(str.get(0).substring(ii,Math.min(ii+LENGTH/CHUNKS, LENGTH)));
+			String temp = str.get(0).substring(ii,Math.min(ii+LENGTH/CHUNKS, LENGTH));
+			String ss = makehash(temp);
 			if ( ss.equals(data.get(counter++)))
 			{
 				ii=Math.min(ii+LENGTH/CHUNKS, LENGTH);
@@ -29,10 +30,12 @@ public class comparison extends hashcodegenerator {
 			{
 				log("false");
 				ii=Math.min(ii+LENGTH/CHUNKS, LENGTH);
+				result.add(temp);
 				
 			}
 			
 		}
+		savefiles.generalsave("second_file.txt", result);
 		log(Integer.toString(counter) + " " + data.size());
 	}
 	private static void log(String a)
