@@ -117,6 +117,9 @@ public class readinfile {
 		
 		for (File file: listoffiles)
 		{
+			
+			result.add(readinbybyte(file).get(0));
+			/*
 			String string= "";
 			BufferedReader in = null;
 			String str;
@@ -129,7 +132,7 @@ public class readinfile {
 				 * 
 				 * 
 				 */
-				
+				/*
 				while ((str=in.readLine())!=null)
 				{
 					
@@ -149,7 +152,7 @@ public class readinfile {
 		      }
 		    
 		    System.out.println(string.charAt(string.length()-1));
-		
+		    */
 		}
 		return result;
 	}
@@ -172,7 +175,7 @@ public class readinfile {
 		File file = new File(name);
 		if (file.isFile())
 		{
-			return result = readwholein(file);
+			return result = readinbybyte(file);
 		}
 		else
 		{

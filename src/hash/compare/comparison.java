@@ -8,15 +8,14 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
 public class comparison extends hashcodegenerator {
-	public static void stepcompare(String filename) throws ClassNotFoundException, NoSuchAlgorithmException, IOException
+	public static void stepcompare(ArrayList<String> str) throws ClassNotFoundException, NoSuchAlgorithmException, IOException
 	{
-		File ff = new File(filename);
-		ArrayList<String> str =  readinfile.readinbybyte(ff);
 		ArrayList<String> data = readinfile.readin("data/data.txt");
 		ArrayList<String> result = new ArrayList<String>();
 		int ii = 0 ; 
 		int counter=0;
 		int LENGTH = str.get(0).length();
+		log(Integer.toString(LENGTH));
 		while (  ii <= LENGTH && counter < data.size() )
 		{
 			String temp = str.get(0).substring(ii,Math.min(ii+LENGTH/CHUNKS, LENGTH));
@@ -24,11 +23,11 @@ public class comparison extends hashcodegenerator {
 			if ( ss.equals(data.get(counter++)))
 			{
 				ii=Math.min(ii+LENGTH/CHUNKS, LENGTH);
-				log("true");
+				//log("true");
 			}
 			else
 			{
-				log("false");
+				//log("false");
 				ii=Math.min(ii+LENGTH/CHUNKS, LENGTH);
 				result.add(temp);
 				
@@ -36,6 +35,7 @@ public class comparison extends hashcodegenerator {
 			
 		}
 		savefiles.generalsave("second_file.txt", result);
+		result.clear();
 		log(Integer.toString(counter) + " " + data.size());
 	}
 	private static void log(String a)

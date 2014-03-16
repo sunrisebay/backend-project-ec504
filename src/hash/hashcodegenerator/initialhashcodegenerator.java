@@ -21,13 +21,15 @@ public class initialhashcodegenerator extends hashcodegenerator{
 			return false;
 	}
 	
-	public static void initialwritefile(String filename) throws ClassNotFoundException, NoSuchAlgorithmException, IOException
+	public static void initialwritefile(String file) throws ClassNotFoundException, NoSuchAlgorithmException, IOException
 	{
+		ArrayList<String>  ss = readinfile.readinmain(file);
+		log(Integer.toString(ss.size()));
 		if (initialfilechecker()==false)
 		{
 			log("not exists");
-			File ff = new File(filename);
-			ArrayList<String>  ss = readinfile.readinbybyte(ff);
+			//File ff = new File(filename);
+			
 			int ii=0;
 			PrintStream outDecode = new PrintStream(new FileOutputStream("data/data.txt"));
 			int LENGTH = ss.get(0).length();
@@ -41,10 +43,16 @@ public class initialhashcodegenerator extends hashcodegenerator{
 			outDecode.close();
 			
 			savefiles.initialsave("first_file.txt", ss);
+			if(ss.size()>1)
+			{
+				ss.remove(0);
+				comparison.stepcompare(ss);
+			}
 		}
 		else
 		{
-			comparison.stepcompare(filename);
+			log("here");
+			comparison.stepcompare(ss);
 		}
 			
 		
