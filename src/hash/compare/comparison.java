@@ -11,7 +11,7 @@ public class comparison extends hashcodegenerator {
 	public static void stepcompare(String filename) throws ClassNotFoundException, NoSuchAlgorithmException, IOException
 	{
 		File ff = new File(filename);
-		ArrayList<String> str =  readinfile.readwholein(ff);
+		ArrayList<String> str =  readinfile.readinbybyte(ff);
 		ArrayList<String> data = readinfile.readin("data/data.txt");
 		int ii = 0 ; 
 		int counter=0;

@@ -2,6 +2,7 @@ package hash.hashcodegenerator;
 
 import hash.compare.comparison;
 import hash.compare.readinfile;
+import hash.compare.savefiles;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -26,11 +27,10 @@ public class initialhashcodegenerator extends hashcodegenerator{
 		{
 			log("not exists");
 			File ff = new File(filename);
-			ArrayList<String>  ss = readinfile.readwholein(ff);
+			ArrayList<String>  ss = readinfile.readinbybyte(ff);
 			int ii=0;
 			PrintStream outDecode = new PrintStream(new FileOutputStream("data/data.txt"));
 			int LENGTH = ss.get(0).length();
-			log(Integer.toString(LENGTH));
 			while ( ii < LENGTH)
 			{
 				String str = makehash(ss.get(0).substring(ii,Math.min(ii+LENGTH/CHUNKS, LENGTH)));
@@ -39,6 +39,8 @@ public class initialhashcodegenerator extends hashcodegenerator{
 
 			}
 			outDecode.close();
+			
+			savefiles.initialsave("first_file.txt", ss);
 		}
 		else
 		{
