@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
+import test.findcharedits.test1;
+
 public class tester2 {
 	public static void main(String [] args) throws ClassNotFoundException, NoSuchAlgorithmException, IOException
 	{
@@ -16,8 +18,11 @@ public class tester2 {
 		//stepcheckV2(file1.get(0).toString(),file2.get(0).toString());
 		//readinfile.readinmain("testfolder");
 		//initialhashcodegenerator.initialwritefile("plain.txt");
-		initialhashcodegenerator.initialwritefile("testfolder");
+		//initialhashcodegenerator.initialwritefile("testfolder");
 		//readinfile.readinbybyte("plain.txt");
+		test1 tt = new test1();
+		tt.finddiff("abcdefghijkl", "defghijklmno", 0);
+		tt.show();
 	}
 	public static boolean initialcheckV2(String s1, String s2) throws NoSuchAlgorithmException
 	{

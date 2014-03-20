@@ -31,7 +31,7 @@ public class test1 {
 		LOC = new Vector <Change> ();
 	}
 	
-	public  void finddiff(String str1, String str2, int startpos) {
+	public void finddiff(String str1, String str2, int startpos) {
 		int i = 0;
 		int index;
 		int diffptr;
@@ -143,6 +143,22 @@ public class test1 {
 								+ " is " + tmps);
 		
 		}
+		int sizediff = getdiffsize();
+		System.out.println("Size Diff:" + sizediff);
+	}
+	
+	public int getdiffsize()
+	{
+		int result=0;
+		for (Change cc : LOC )
+		{
+			if (cc.getOperation()==1)
+				result--;
+			if (cc.getOperation()==2)
+				result++ ;
+			
+		}
+		return result;
 	}
 	
 	private static Vector <Change> LOC;
