@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
 
+import test.findcharedits.test1;
+
 public class tester {
 	public static void main(String [] args) throws NoSuchAlgorithmException, ClassNotFoundException, IOException
 	{
@@ -46,9 +48,11 @@ public class tester {
 				
 		}
 		String str1 = "abcdef";
-		String str2 = "1b2c3d4e5f";
-		
-		test.findcharedits.test1.finddiff(str1, str2);
+		String str2 = "abcdef1";
+		test1 tested = new test1();
+		tested.finddiff(str1, str2, 0);
+
+		tested.show();
 		decodefile.decode("plain.txt","fuckhansen",214,2,5);
 	}
 	
