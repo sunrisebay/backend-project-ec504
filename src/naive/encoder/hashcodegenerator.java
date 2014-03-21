@@ -1,4 +1,4 @@
-package hash.hashcodegenerator;
+package naive.encoder;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 

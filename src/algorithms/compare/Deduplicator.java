@@ -1,13 +1,13 @@
-package hash.compare;
+package algorithms.compare;
 
-import hash.hashcodegenerator.hashcodegenerator;
-import hash.hashcodegenerator.mainsaving;
 
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
-import test.findcharedits.test1;
+import naive.encoder.hashcodegenerator;
+import naive.encoder.mainsaving;
+
 
 public class Deduplicator {
 	public static void main(String [] args) throws ClassNotFoundException, NoSuchAlgorithmException, IOException
@@ -20,8 +20,8 @@ public class Deduplicator {
 		//initialhashcodegenerator.writefile("plain.txt");
 		//initialhashcodegenerator.writefile("testfolder");
 		//readinfile.readinbybyte("plain.txt");
-		test1 tt = new test1();
-		tt.finddiff("abcdefghijkl", "defghijklmno", 0);
+		stringcomparison tt = new stringcomparison();
+		tt.finddiff("abcdefghijkl", "defghijk", 0);
 		tt.show();
 	}
 	
@@ -29,5 +29,5 @@ public class Deduplicator {
 	{
 		System.out.println(a);
 	}
-	private static int CHUNKS =  1000;
+	
 }

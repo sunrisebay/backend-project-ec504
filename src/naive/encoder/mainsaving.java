@@ -1,7 +1,5 @@
-package hash.hashcodegenerator;
+package naive.encoder;
 
-import hash.compare.comparison;
-import hash.compare.readinfile;
 
 
 import java.io.File;
@@ -11,6 +9,8 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+
+import algorithms.compare.comparison;
 
 public class mainsaving {
 	

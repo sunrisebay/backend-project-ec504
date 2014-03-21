@@ -1,4 +1,4 @@
-package hash.compare;
+package naive.encoder;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.File;

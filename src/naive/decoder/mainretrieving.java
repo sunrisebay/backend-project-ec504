@@ -2,7 +2,6 @@ package naive.decoder;
 
 
 
-import hash.compare.readinfile;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -10,6 +9,9 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+
+import naive.encoder.readinfile;
+
 
 public class mainretrieving {
 	public static void decode(String inputfilename, String outputfilename, String change, int line, int startpt, int orilength ) throws ClassNotFoundException, NoSuchAlgorithmException, IOException

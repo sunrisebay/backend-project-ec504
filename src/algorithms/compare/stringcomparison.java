@@ -1,8 +1,8 @@
-package test.findcharedits;
+package algorithms.compare;
 
 import java.util.Vector;
 
-public class test1 {
+public class stringcomparison {
 
 	public class Change {
 		public Change(int myposition, int myoperation, String mycontent) {
@@ -27,7 +27,7 @@ public class test1 {
 		
 	}
 	
-	public test1() {
+	public stringcomparison() {
 		LOC = new Vector <Change> ();
 	}
 	
@@ -51,7 +51,7 @@ public class test1 {
 			if (i == len1 && i < len2) {
 				//System.out.println((len2 - len1) + " chars " + str2.substring(i+1) + " inserted at " + len1 + " on string1");
 				// sample string has more characters at the end
-				LOC.addElement(new Change(i+1, 2, str2.substring(i+1)));
+				//LOC.addElement(new Change(i+1, 2, str2.substring(i+1)));
 				return;
 			}
 			else if (i == len2 && i < len1) {
@@ -153,9 +153,9 @@ public class test1 {
 		for (Change cc : LOC )
 		{
 			if (cc.getOperation()==1)
-				result--;
+				result-= cc.getContent().length();
 			if (cc.getOperation()==2)
-				result++ ;
+				result+=cc.getContent().length() ;
 			
 		}
 		return result;

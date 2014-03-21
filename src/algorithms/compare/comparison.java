@@ -1,12 +1,14 @@
-package hash.compare;
+package algorithms.compare;
 
-import hash.hashcodegenerator.hashcodegenerator;
-import hash.hashcodegenerator.mainsaving;
 
 import java.io.File;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+
+import naive.encoder.hashcodegenerator;
+import naive.encoder.mainsaving;
+import naive.encoder.readinfile;
 
 public class comparison {
 	
