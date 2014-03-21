@@ -11,10 +11,11 @@ import java.io.PrintStream;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
-public class decodefile {
+public class mainretrieving {
 	public static void decode(String inputfilename, String outputfilename, String change, int line, int startpt, int orilength ) throws ClassNotFoundException, NoSuchAlgorithmException, IOException
 	{
-		ArrayList<String> defaultversion = readinfile.readin(inputfilename);
+		readinfile rr = new readinfile(inputfilename);
+		ArrayList<String> defaultversion = rr.ss;
 		String ll = defaultversion.get(line-1);
 		System.out.println(defaultversion.get(line-1));
 		String llpre = ll.substring(0,startpt);

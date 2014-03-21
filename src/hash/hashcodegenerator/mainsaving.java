@@ -2,16 +2,22 @@ package hash.hashcodegenerator;
 
 import hash.compare.comparison;
 import hash.compare.readinfile;
-import hash.compare.savefiles;
+
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
-public class initialhashcodegenerator extends hashcodegenerator{
+public class mainsaving {
+	
+	public mainsaving(String file,char action) throws ClassNotFoundException, NoSuchAlgorithmException, IOException
+	{
+		writefile(file);
+	}
 	public static boolean initialfilechecker()
 	{
 		File ff = new File("data/data.txt");
@@ -21,9 +27,14 @@ public class initialhashcodegenerator extends hashcodegenerator{
 			return false;
 	}
 	
-	public static void initialwritefile(String file) throws ClassNotFoundException, NoSuchAlgorithmException, IOException
+	public void writefile(String file) throws ClassNotFoundException, NoSuchAlgorithmException, IOException
 	{
-		ArrayList<String>  ss = readinfile.readinmain(file);
+		//temp var
+		String filename="xx.txt";
+		//-----------------
+		
+		readinfile rr = new readinfile(file);
+		ArrayList<String>  ss = rr.ss;
 		log(Integer.toString(ss.size()));
 		if (initialfilechecker()==false)
 		{
@@ -35,30 +46,45 @@ public class initialhashcodegenerator extends hashcodegenerator{
 			int LENGTH = ss.get(0).length();
 			while ( ii < LENGTH)
 			{
-				String str = makehash(ss.get(0).substring(ii,Math.min(ii+LENGTH/CHUNKS, LENGTH)));
+				hashcodegenerator hh = new hashcodegenerator(ss.get(0).substring(ii,Math.min(ii+LENGTH/CHUNKS, LENGTH)));
+				String str = hh.str;
 				outDecode.println(str);
 				ii=Math.min(ii+LENGTH/CHUNKS, LENGTH);
 
 			}
 			outDecode.close();
 			
-			savefiles.initialsave("first_file.txt", ss);
+			savefile(file, ss);
 			if(ss.size()>1)
 			{
 				ss.remove(0);
-				comparison.stepcompare(ss);
+				comparison cc = new comparison(filename,ss);
+				
 			}
 		}
 		else
 		{
 			log("here");
-			comparison.stepcompare(ss);
+			comparison cc = new comparison(filename,ss);
 		}
 			
 		
 		
 		
 	}
+	
+	public static void savefile(String filename, ArrayList<String> str) throws FileNotFoundException
+	{
+		PrintStream outDecode = new PrintStream(new FileOutputStream("database/" + filename));
+		for ( String ss : str)
+		{
+			outDecode.print(ss);
+		}
+		
+		outDecode.close();
+	}
+	
+	
 	private static void log(String a)
 	{
 		System.out.println(a);
