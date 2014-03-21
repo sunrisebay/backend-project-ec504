@@ -21,17 +21,18 @@ public class comparison extends readinfile{
 	{
 		readinfile rr = new readinfile("data/data.txt");
 		ArrayList<savelet> data =rr.ss;
+		String[] str = data.get(0).getfilecontent().split("\n");
 		ArrayList<String> result = new ArrayList<String>();
 		int ii = 0 ; 
 		int counter=0;
-		int LENGTH = ss2.get(0).getfilecontent().get(0).length();
+		int LENGTH = ss2.get(0).getfilecontent().length();
 		log(Integer.toString(LENGTH));
 		while (  ii <= LENGTH && counter < data.size() )
 		{
-			String temp = ss2.get(0).getfilecontent().get(0).substring(ii,Math.min(ii+LENGTH/CHUNKS, LENGTH));
+			String temp = ss2.get(0).getfilecontent().substring(ii,Math.min(ii+LENGTH/CHUNKS, LENGTH));
 			hashcodegenerator hh = new hashcodegenerator(temp);
 			String ss = hh.str;
-			if ( ss.equals(data.get(0).getfilecontent().get(counter++)))
+			if ( ss.equals(str[counter++]))
 			{
 				ii=Math.min(ii+LENGTH/CHUNKS, LENGTH);
 				//log("true");
@@ -45,8 +46,8 @@ public class comparison extends readinfile{
 			}
 			
 		}
-		data.get(0).setfilecontent(result);
-		mainsaving.savefile(filename, data);
+		data.get(0).setfilecontent(result.toString());
+		mainsaving mm = new mainsaving(filename, data,"save");
 		result.clear();
 		log(Integer.toString(counter) + " " + data.size());
 	}

@@ -15,9 +15,18 @@ import algorithms.compare.comparison;
 
 public class mainsaving extends readinfile{
 	
-	public mainsaving(String file,char action) throws ClassNotFoundException, NoSuchAlgorithmException, IOException
+	public mainsaving(String file, ArrayList<savelet> ss, String action) throws ClassNotFoundException, NoSuchAlgorithmException, IOException
 	{
-		writefile(file);
+		switch (action)
+		{
+		case "write":
+			writefile(file);
+			break;
+		case "save":
+			savefile(file, ss);
+			
+		}
+		
 	}
 	public static boolean initialfilechecker()
 	{
@@ -44,10 +53,10 @@ public class mainsaving extends readinfile{
 			
 			int ii=0;
 			PrintStream outDecode = new PrintStream(new FileOutputStream("data/data.txt"));
-			int LENGTH = ss.get(0).getfilecontent().get(0).length();
+			int LENGTH = ss.get(0).getfilecontent().length();
 			while ( ii < LENGTH)
 			{
-				hashcodegenerator hh = new hashcodegenerator(ss.get(0).getfilecontent().get(0).substring(ii,Math.min(ii+LENGTH/CHUNKS, LENGTH)));
+				hashcodegenerator hh = new hashcodegenerator(ss.get(0).getfilecontent().substring(ii,Math.min(ii+LENGTH/CHUNKS, LENGTH)));
 				String str = hh.str;
 				outDecode.println(str);
 				ii=Math.min(ii+LENGTH/CHUNKS, LENGTH);
@@ -77,10 +86,8 @@ public class mainsaving extends readinfile{
 	public static void savefile(String filename, ArrayList<savelet> ss2) throws FileNotFoundException
 	{
 		PrintStream outDecode = new PrintStream(new FileOutputStream("database/" + filename));
-		for ( String ss : ss2.get(0).getfilecontent())
-		{
-			outDecode.print(ss);
-		}
+		
+		outDecode.print(ss2.get(0).getfilecontent());
 		
 		outDecode.close();
 	}

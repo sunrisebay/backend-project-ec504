@@ -17,7 +17,7 @@ import naive.encoder.readinfile;
 public class mainretrieving extends readinfile{
 	public static void decode(String inputfilename, String outputfilename, String change, int line, int startpt, int orilength ) throws ClassNotFoundException, NoSuchAlgorithmException, IOException
 	{
-		readinfile rr = new readinfile(inputfilename);
+		/*readinfile rr = new readinfile(inputfilename);
 		ArrayList<savelet> defaultversion = rr.ss;
 		String ll = defaultversion.get(0).getfilecontent().get(line-1);
 		System.out.println(defaultversion.get(line-1));
@@ -30,7 +30,7 @@ public class mainretrieving extends readinfile{
 		System.out.println(defaultversion.get(line-1));
 		PrintStream outDecode = new PrintStream(new FileOutputStream(outputfilename));
 		outDecode.print(defaultversion.get(line-1));
-		outDecode.close();
+		outDecode.close();*/
 	}
 	
 		

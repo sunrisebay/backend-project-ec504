@@ -17,7 +17,7 @@ public class Deduplicator {
 		
 		//stepcheckV2(file1.get(0).toString(),file2.get(0).toString());
 		//readinfile.readinmain("testfolder");
-		//initialhashcodegenerator.writefile("plain.txt");
+		mainsaving mm = new mainsaving("plain.txt",null,"write");
 		//initialhashcodegenerator.writefile("testfolder");
 		//readinfile.readinbybyte("plain.txt");
 		stringcomparison tt = new stringcomparison();

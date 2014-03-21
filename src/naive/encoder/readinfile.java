@@ -39,14 +39,13 @@ public class readinfile {
 	
 	public ArrayList<savelet> readinbybyte(String filename, File file) throws IOException
 	{
-		ArrayList<String> result = new ArrayList<String>();
+		
 		ArrayList<savelet> save = new ArrayList<savelet>();
 		FileInputStream fin = new FileInputStream(file);
 		byte[] buffer = new byte[(int)file.length()];
 		new DataInputStream(fin).readFully(buffer);
 		fin.close();
-		String s = new String(buffer,"UTF-8");
-		result.add(s);
+		String result = new String(buffer,"UTF-8");
 		savelet sa =  new savelet(filename,result);
 		save.add(sa);
 		return save;
@@ -69,7 +68,7 @@ public class readinfile {
 	
 	protected class savelet
 	{
-		public savelet(String filenames, ArrayList<String> filecontents)
+		public savelet(String filenames, String filecontents)
 		{
 			filename = filenames;
 			filecontent = filecontents;
@@ -78,7 +77,7 @@ public class readinfile {
 		{
 			return filename;
 		}
-		public ArrayList<String> getfilecontent()
+		public String getfilecontent()
 		{
 			return filecontent;
 		}
@@ -86,12 +85,12 @@ public class readinfile {
 		{
 			filename=filenames;
 		}
-		public void setfilecontent(ArrayList<String> filecontents)
+		public void setfilecontent(String filecontents)
 		{
 			filecontent=filecontents;
 		}
 		public  String filename;
-		public ArrayList<String> filecontent;
+		public String filecontent;
 	}
 	
 	private static void log(String a)
