@@ -10,28 +10,28 @@ import naive.encoder.hashcodegenerator;
 import naive.encoder.mainsaving;
 import naive.encoder.readinfile;
 
-public class comparison {
+public class comparison extends readinfile{
 	
-	public comparison(String filename, ArrayList<String> str) throws ClassNotFoundException, NoSuchAlgorithmException, IOException
+	public comparison(String filename, ArrayList<savelet> ss) throws ClassNotFoundException, NoSuchAlgorithmException, IOException
 	{
-		stepcompare(filename,str);
+		stepcompare(filename,ss);
 	}
 	
-	public void stepcompare(String filename, ArrayList<String> str) throws ClassNotFoundException, NoSuchAlgorithmException, IOException
+	public void stepcompare(String filename, ArrayList<savelet> ss2) throws ClassNotFoundException, NoSuchAlgorithmException, IOException
 	{
 		readinfile rr = new readinfile("data/data.txt");
-		ArrayList<String> data =rr.ss;
+		ArrayList<savelet> data =rr.ss;
 		ArrayList<String> result = new ArrayList<String>();
 		int ii = 0 ; 
 		int counter=0;
-		int LENGTH = str.get(0).length();
+		int LENGTH = ss2.get(0).getfilecontent().get(0).length();
 		log(Integer.toString(LENGTH));
 		while (  ii <= LENGTH && counter < data.size() )
 		{
-			String temp = str.get(0).substring(ii,Math.min(ii+LENGTH/CHUNKS, LENGTH));
+			String temp = ss2.get(0).getfilecontent().get(0).substring(ii,Math.min(ii+LENGTH/CHUNKS, LENGTH));
 			hashcodegenerator hh = new hashcodegenerator(temp);
 			String ss = hh.str;
-			if ( ss.equals(data.get(counter++)))
+			if ( ss.equals(data.get(0).getfilecontent().get(counter++)))
 			{
 				ii=Math.min(ii+LENGTH/CHUNKS, LENGTH);
 				//log("true");
@@ -45,8 +45,8 @@ public class comparison {
 			}
 			
 		}
-		
-		mainsaving.savefile(filename, result);
+		data.get(0).setfilecontent(result);
+		mainsaving.savefile(filename, data);
 		result.clear();
 		log(Integer.toString(counter) + " " + data.size());
 	}

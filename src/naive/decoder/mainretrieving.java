@@ -13,17 +13,18 @@ import java.util.ArrayList;
 import naive.encoder.readinfile;
 
 
-public class mainretrieving {
+
+public class mainretrieving extends readinfile{
 	public static void decode(String inputfilename, String outputfilename, String change, int line, int startpt, int orilength ) throws ClassNotFoundException, NoSuchAlgorithmException, IOException
 	{
 		readinfile rr = new readinfile(inputfilename);
-		ArrayList<String> defaultversion = rr.ss;
-		String ll = defaultversion.get(line-1);
+		ArrayList<savelet> defaultversion = rr.ss;
+		String ll = defaultversion.get(0).getfilecontent().get(line-1);
 		System.out.println(defaultversion.get(line-1));
 		String llpre = ll.substring(0,startpt);
 		String llsuf = ll.substring(startpt+orilength,ll.length());
 		ll = llpre + change + llsuf;
-		defaultversion.add(line-1,ll);
+		defaultversion.get(0).getfilecontent().add(line-1,ll);
 		defaultversion.remove(line);
 		
 		System.out.println(defaultversion.get(line-1));

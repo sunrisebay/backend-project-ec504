@@ -13,60 +13,92 @@ import java.util.ArrayList;
 
 public class readinfile {
 	
+	public readinfile()
+	{
+		
+	}
 	public readinfile(String file) throws ClassNotFoundException, NoSuchAlgorithmException, IOException
 	{
 		ss = readinmain(file);
 	}
 	
 	
-	public ArrayList<String> readinfolder(File folder) throws IOException
+	public ArrayList<savelet> readinfolder(String foldername, File folder) throws IOException
 	{
 		
 		File[] listoffiles = folder.listFiles();
-		ArrayList<String> result = new ArrayList<String>();
-		
+		ArrayList<savelet> result = new ArrayList<savelet>();
 		for (File file: listoffiles)
 		{
 			
-			result.add(readinbybyte(file).get(0));
+			result.add(readinbybyte(file.getName(),file).get(0));
 
 		}
 		return result;
 	}
 	
-	public ArrayList<String> readinbybyte(File file) throws IOException
+	public ArrayList<savelet> readinbybyte(String filename, File file) throws IOException
 	{
 		ArrayList<String> result = new ArrayList<String>();
+		ArrayList<savelet> save = new ArrayList<savelet>();
 		FileInputStream fin = new FileInputStream(file);
 		byte[] buffer = new byte[(int)file.length()];
 		new DataInputStream(fin).readFully(buffer);
 		fin.close();
 		String s = new String(buffer,"UTF-8");
 		result.add(s);
-		return result;
+		savelet sa =  new savelet(filename,result);
+		save.add(sa);
+		return save;
 	}
 	
-	public ArrayList<String> readinmain(String name) throws ClassNotFoundException, NoSuchAlgorithmException, IOException
+	public ArrayList<savelet> readinmain(String name) throws ClassNotFoundException, NoSuchAlgorithmException, IOException
 	{	
-		ArrayList<String> result = new ArrayList<String>();
+		ArrayList<savelet> result = new ArrayList<savelet>();
 		File file = new File(name);
 		if (file.isFile())
 		{
-			return result = readinbybyte(file);
+			return result = readinbybyte(name,file);
 		}
 		else
 		{
-			return result = readinfolder(file);
+			return result = readinfolder(name,file);
 		}
 		
 	}
 	
+	protected class savelet
+	{
+		public savelet(String filenames, ArrayList<String> filecontents)
+		{
+			filename = filenames;
+			filecontent = filecontents;
+		}
+		public String getfilename()
+		{
+			return filename;
+		}
+		public ArrayList<String> getfilecontent()
+		{
+			return filecontent;
+		}
+		public void setfilename(String filenames)
+		{
+			filename=filenames;
+		}
+		public void setfilecontent(ArrayList<String> filecontents)
+		{
+			filecontent=filecontents;
+		}
+		public  String filename;
+		public ArrayList<String> filecontent;
+	}
 	
 	private static void log(String a)
 	{
 		System.out.println(a);
 	}
 	
-	public ArrayList<String> ss;
+	public ArrayList<savelet> ss;
 	
 }
